@@ -7,16 +7,34 @@ export const metadata: Metadata = {
     description: "A collection of things I've built and explored.",
 };
 
-const experiments = [
+type Experiment = {
+    title: string;
+    description: string;
+    status?: string;
+    techStack: string[];
+    image?: string;
+    github: string;
+    live?: string;
+    isMobileScreenshot?: boolean;
+    downloadApk?: string;
+};
+
+const experiments: Experiment[] = [
     {
         title: "Lunara",
         description:
             "A privacy-first cycle intelligence platform that combines Flow, Mood, and Body tracking to generate adaptive insights based on personal health patterns. Enables users to log daily cycle data and receive AI-assisted forecasting through secure authentication and encrypted Firestore storage.",
-        status: "In Progress",
         techStack: ["Next.js", "Firebase Auth", "Firestore", "TailwindCSS", "OpenAI API"],
         image: "/projects/lunara.png",
         github: "https://github.com/Tanushree-RD/lunara",
         live: "https://lunara-teal.vercel.app/",
+    },
+    {
+        title: "ASCII Art Generator",
+        description: "Converts images and webcam feed into ASCII art using Python. Supports adjustable width, density, and real-time webcam ASCII output in the terminal.",
+        techStack: ["Python", "OpenCV", "Pillow", "NumPy"],
+        image: "/projects/ascii.png",
+        github: "https://github.com/Tanushree-RD/ascii_art",
     },
     {
         title: "iBallBooster",
@@ -28,15 +46,6 @@ const experiments = [
         github: "https://github.com/Tanushree-RD/iballbooster",
         downloadApk:
             "https://github.com/Tanushree-RD/iballbooster/releases/latest",
-    },
-    {
-        title: "Vibe Quiz",
-        description:
-            "A fun, pastel-themed personality quiz that tells you your Gen Z \"vibe\".",
-        techStack: ["HTML", "CSS", "JavaScript"],
-        image: "/projects/vibequiz.png",
-        github: "https://github.com/Tanushree-RD/vibe-quiz",
-        live: "https://tanushree-rd.github.io/vibe-quiz/",
     },
     {
         title: "Particle Playground",

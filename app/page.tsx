@@ -108,7 +108,7 @@ export default function Home() {
           Bachelor of Engineering in Computer Science and Business Systems
         </p>
         <p className="mt-1 text-xs text-muted lowercase">2025 – 2029</p>
-        <p className="mt-1 text-xs text-muted lowercase">CGPA: Yet to be announced</p>
+        <p className="mt-1 text-xs text-muted lowercase">CGPA: 9.70</p>
       </FadeInSection>
 
       {/* ───────── Tech Stack ───────── */}
