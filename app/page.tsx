@@ -35,14 +35,13 @@ const socials: { label: string; href: string; icon: ReactElement }[] = [
     icon: <FiLinkedin />,
   },
   { label: "Twitter", href: "https://x.com/serotoninwave", icon: <FiTwitter /> },
-  { label: "Instagram", href: "https://youtu.be/dQw4w9WgXcQ?si=65wHgXVvTc8O-jQJ", icon: <FiInstagram /> },
+  { label: "Instagram", href: "https://www.instagram.com/mynameistakenloll?igsh=MTNyY2sxaDh0anVtYg==", icon: <FiInstagram /> },
   { label: "Email", href: "mailto:tanushreer021@gmail.com", icon: <FiMail /> },
 ];
 
 const featuredProject = {
   title: "Lunara",
   description: "A privacy-first cycle intelligence platform that combines Flow, Mood, and Body tracking to generate adaptive insights based on personal health patterns.",
-  status: "In Progress",
   techStack: ["Next.js", "Firebase Auth", "Firestore", "TailwindCSS", "OpenAI API"],
   github: "https://github.com/Tanushree-RD/lunara",
   live: "https://lunara-teal.vercel.app/",
