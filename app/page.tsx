@@ -77,9 +77,10 @@ export default function Home() {
           About
         </h2>
         <p className="text-sm leading-relaxed text-muted lowercase">
-          CS undergrad obsessed with making things look clean and feel right.
-          Currently digging into Backend and Web3, building stuff, learning DSA,
-          and exploring AI/ML.
+          I'm 18, and I enjoy designing and building things.
+          I'm mostly into web development, and lately I've been exploring
+          backend development, automation, and systems while improving my
+          DSA skills along the way.
         </p>
       </FadeInSection>
 
