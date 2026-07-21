@@ -163,11 +163,6 @@ export default function Home() {
               <h3 className="text-sm font-semibold text-foreground">
                 {featuredProject.title}
               </h3>
-              {featuredProject.status && (
-                <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-medium text-accent-dark">
-                  {featuredProject.status}
-                </span>
-              )}
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted lowercase">
               {featuredProject.description}
