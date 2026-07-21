@@ -4,4 +4,4 @@ Personal portfolio website built using Next.js and Tailwind CSS.
 
 This site showcases my experiments, blogs, and learning journey as a Computer Science undergraduate.
 
-🔗 Live: https://sero-portfolio.vercel.app
+🔗 Live: https://tanushree.is-a.dev/
