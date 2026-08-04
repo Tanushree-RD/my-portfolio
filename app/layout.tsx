@@ -15,10 +15,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tanushree RD | Portfolio",
+  title: "tanushree",
   description:
     "Tanushree RD — CS undergrad crafting beautiful and functional web apps.",
 };
+
+// Inline script to apply theme before first paint (prevents FOUC)
+const themeScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -26,7 +37,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,3 +51,4 @@ export default function RootLayout({
     </html>
   );
 }
+

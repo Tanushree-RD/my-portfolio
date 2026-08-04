@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
+/* ─── Light Theme (default — cherry blossom pink) ─── */
 :root {
   --background: #FFF5F2;
   --foreground: #2D2D2D;
@@ -13,6 +14,25 @@
   --secondary: #FFD6C9;
   --muted: #2d2d2d;
   --shadow: rgba(248, 180, 198, 0.12);
+  --hover-shadow: rgba(232, 137, 158, 0.25);
+  --glow: rgba(248, 180, 198, 0.08);
+}
+
+/* ─── Dark Theme (premium charcoal) ─── */
+[data-theme="dark"] {
+  --background: #141414;
+  --foreground: #F5F5F5;
+  --card: #1E1E1E;
+  --card-hover: #232323;
+  --border: rgba(255, 255, 255, 0.06);
+  --accent: #F2AFC3;
+  --accent-dark: #F2AFC3;
+  --accent-soft: rgba(242, 175, 195, 0.08);
+  --secondary: #1A1A1A;
+  --muted: #BDBDBD;
+  --shadow: rgba(0, 0, 0, 0.25);
+  --hover-shadow: rgba(242, 175, 195, 0.08);
+  --glow: rgba(242, 175, 195, 0.03);
 }
 
 @theme inline {
@@ -34,6 +54,19 @@
 
 * {
   box-sizing: border-box;
+}
+
+/* ─── Smooth theme transition (applied via JS after toggle) ─── */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 500ms cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 body {
@@ -62,7 +95,7 @@ main {
   }
 }
 
-/* Custom scrollbar — light theme */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -97,4 +130,74 @@ main {
 
 .marquee-container:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* ─── Theme toggle button ─── */
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+/* Icon container for Sun/Moon swap */
+.theme-toggle-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sun icon states */
+.theme-toggle .icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+/* Moon icon states */
+.theme-toggle .icon-moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ─── Dark theme scrollbar overrides ─── */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }

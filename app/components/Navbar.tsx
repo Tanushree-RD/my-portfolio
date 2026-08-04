@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
     { href: "/", label: "home" },
@@ -30,25 +31,28 @@ export default function Navbar() {
                     />
                 </Link>
 
-                {/* Navigation Links */}
-                <ul className="flex items-center gap-5">
-                    {navLinks.map(({ href, label }) => {
-                        const isActive = pathname === href;
-                        return (
-                            <li key={href}>
-                                <Link
-                                    href={href}
-                                    className={`relative text-xs tracking-tight transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-foreground after:transition-all after:duration-300 after:ease-out ${isActive
-                                        ? "text-foreground after:w-full"
-                                        : "text-muted hover:text-foreground after:w-0 hover:after:w-full"
-                                        }`}
-                                >
-                                    {label}
-                                </Link>
-                            </li>
-                        );
-                    })}
-                </ul>
+                {/* Navigation Links + Theme Toggle */}
+                <div className="flex items-center gap-5">
+                    <ul className="flex items-center gap-5">
+                        {navLinks.map(({ href, label }) => {
+                            const isActive = pathname === href;
+                            return (
+                                <li key={href}>
+                                    <Link
+                                        href={href}
+                                        className={`relative text-xs tracking-tight transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-foreground after:transition-all after:duration-300 after:ease-out ${isActive
+                                            ? "text-foreground after:w-full"
+                                            : "text-muted hover:text-foreground after:w-0 hover:after:w-full"
+                                            }`}
+                                    >
+                                        {label}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <ThemeToggle />
+                </div>
             </div>
         </nav>
     );
