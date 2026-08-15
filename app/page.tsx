@@ -48,12 +48,12 @@ const featuredProject = {
 };
 
 const latestBlog = {
-  title: "Who Am I?",
-  link: "https://medium.com/@serotoninwave/who-am-i-9d31559bd223",
+  title: "Understanding Purchasing Power Parity Through Tech Salaries",
+  link: "https://medium.com/@serotoninwave/understanding-purchasing-power-parity-through-tech-salaries-7197e4a2dd7b",
+  category: "Tech • Economics",
   description:
-    "A personal reflection about how I went from preparing for NEET to exploring coding, design, fashion, and still figuring life out at 18.",
-  date: "Feb 28, 2026",
-  readTime: "2 min read",
+    "Everyone loves converting Silicon Valley salaries into rupees. But does ₹1.7 crore actually make someone rich? This article explains Purchasing Power Parity through real software engineering salary examples and why exchange rates don't tell the whole story.",
+  readTime: "3 min read",
 };
 
 export default function Home() {
@@ -220,15 +220,19 @@ export default function Home() {
             href={latestBlog.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block flex-1 border border-border p-5 no-underline transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-dark/40 hover:shadow-[0_8px_30px_rgba(232,137,158,0.25)]"
+            className="group block flex-1 border border-border p-5 no-underline transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-accent-dark hover:shadow-[0_8px_30px_rgba(232,137,158,0.25)]"
           >
             <article>
               <div className="flex items-center gap-2 text-[11px] text-muted">
-                <time>{latestBlog.date}</time>
-                <span>·</span>
+                {latestBlog.category && (
+                  <>
+                    <span>{latestBlog.category}</span>
+                    <span>·</span>
+                  </>
+                )}
                 <span>{latestBlog.readTime}</span>
               </div>
-              <h3 className="mt-2 text-sm font-semibold text-foreground">
+              <h3 className="mt-2 text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-accent-dark">
                 {latestBlog.title}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-muted lowercase">
