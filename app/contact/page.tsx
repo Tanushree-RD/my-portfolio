@@ -12,7 +12,7 @@ const socials = [
         href: "https://www.linkedin.com/in/tanushree-r-5a250a370",
     },
     { label: "twitter", href: "https://x.com/serotoninwave" },
-    { label: "instagram", href: "https://youtu.be/dQw4w9WgXcQ?si=65wHgXVvTc8O-jQJ" },
+    { label: "instagram", href: "https://www.instagram.com/tanushirie?igsi=MTNyY2sxaDh0anVtYg==" },
 ];
 
 export default function ContactPage() {

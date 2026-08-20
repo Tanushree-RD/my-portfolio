@@ -35,7 +35,7 @@ const socials: { label: string; href: string; icon: ReactElement }[] = [
     icon: <FiLinkedin />,
   },
   { label: "Twitter", href: "https://x.com/serotoninwave", icon: <FiTwitter /> },
-  { label: "Instagram", href: "https://www.instagram.com/mynameistakenloll?igsh=MTNyY2sxaDh0anVtYg==", icon: <FiInstagram /> },
+  { label: "Instagram", href: "https://www.instagram.com/tanushirie?igsi=MTNyY2sxaDh0anVtYg==", icon: <FiInstagram /> },
   { label: "Email", href: "mailto:tanushreer021@gmail.com", icon: <FiMail /> },
 ];
 
