@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&display=swap');
 @import "tailwindcss";
 
 /* ─── Light Theme (default — cherry blossom pink) ─── */
@@ -16,6 +17,8 @@
   --shadow: rgba(248, 180, 198, 0.12);
   --hover-shadow: rgba(232, 137, 158, 0.25);
   --glow: rgba(248, 180, 198, 0.08);
+  --footer-wm-start: rgba(210, 120, 145, 0.15);
+  --footer-wm-end: rgba(248, 200, 214, 0.04);
 }
 
 /* ─── Dark Theme (premium charcoal) ─── */
@@ -33,11 +36,14 @@
   --shadow: rgba(0, 0, 0, 0.25);
   --hover-shadow: rgba(242, 175, 195, 0.08);
   --glow: rgba(242, 175, 195, 0.03);
+  --footer-wm-start: rgba(255, 255, 255, 0.08);
+  --footer-wm-end: rgba(255, 255, 255, 0.03);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-hover: var(--card-hover);
   --color-border: var(--border);
@@ -200,4 +206,52 @@ main {
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+/* ─── Footer watermark typography ─── */
+.footer-watermark-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.82;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--footer-wm-start), var(--footer-wm-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 14.5vw;
+}
+
+@media (max-width: 1024px) {
+  .footer-watermark-text {
+    font-size: 13vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-watermark-text {
+    font-size: 10.5vw;
+  }
+}
+
+.footer-watermark-container {
+  height: 10vw;
+}
+
+@media (max-width: 1024px) {
+  .footer-watermark-container {
+    height: 9vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-watermark-container {
+    height: 7.2vw;
+  }
 }
