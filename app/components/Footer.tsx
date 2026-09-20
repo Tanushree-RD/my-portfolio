@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="relative w-full overflow-hidden pt-16 md:pt-20 pb-0 select-none font-[family-name:var(--font-jetbrains)]">
+        <footer className="relative w-full pt-16 md:pt-20 pb-0 select-none font-[family-name:var(--font-jetbrains)]" style={{ overflowX: "clip" }}>
             {/* Subtle horizontal divider */}
             <div className="mx-auto max-w-2xl px-6 mb-8 md:mb-10">
                 <div className="h-px w-full bg-border/40" />
@@ -15,7 +15,8 @@ export default function Footer() {
 
             {/* Oversized signature typography — gradient text, absolute centered */}
             <div
-                className="footer-watermark-container relative w-full overflow-hidden"
+                className="footer-watermark-container relative w-full"
+                style={{ overflowX: "visible", overflowY: "hidden" }}
                 aria-hidden="true"
             >
                 <span className="footer-watermark-text">

@@ -225,33 +225,33 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 14.5vw;
+  font-size: 22vw;
 }
 
 @media (max-width: 1024px) {
   .footer-watermark-text {
-    font-size: 13vw;
+    font-size: 20vw;
   }
 }
 
 @media (max-width: 640px) {
   .footer-watermark-text {
-    font-size: 10.5vw;
+    font-size: 28vw;
   }
 }
 
 .footer-watermark-container {
-  height: 10vw;
+  height: 15vw;
 }
 
 @media (max-width: 1024px) {
   .footer-watermark-container {
-    height: 9vw;
+    height: 13.5vw;
   }
 }
 
 @media (max-width: 640px) {
   .footer-watermark-container {
-    height: 7.2vw;
+    height: 19vw;
   }
 }
