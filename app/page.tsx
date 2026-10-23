@@ -31,11 +31,11 @@ const socials: { label: string; href: string; icon: ReactElement }[] = [
   { label: "GitHub", href: "https://github.com/Tanushree-RD", icon: <FiGithub /> },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/tanushree-r-5a250a370",
+    href: "https://www.linkedin.com/in/tanushree-rd/",
     icon: <FiLinkedin />,
   },
   { label: "Twitter", href: "https://x.com/serotoninwave", icon: <FiTwitter /> },
-  { label: "Instagram", href: "https://www.instagram.com/tanushirie?igsi=MTNyY2sxaDh0anVtYg==", icon: <FiInstagram /> },
+  { label: "Instagram", href: "https://www.instagram.com/tanushreeiei/", icon: <FiInstagram /> },
   { label: "Email", href: "mailto:tanushreer021@gmail.com", icon: <FiMail /> },
 ];
 
