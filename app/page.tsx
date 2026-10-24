@@ -76,7 +76,7 @@ export default function Home() {
           About
         </h2>
         <p className="text-sm leading-relaxed text-muted lowercase">
-          I'm 18, and I enjoy designing and building things.
+          I'm 19, and I enjoy designing and building things.
           I'm mostly into web development, and lately I've been exploring
           backend development, automation, and systems while improving my
           DSA skills along the way.
