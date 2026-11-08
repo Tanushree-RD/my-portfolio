@@ -9,23 +9,52 @@ export const metadata: Metadata = {
 
 type Experiment = {
     title: string;
+    subtitle?: string;
     description: string;
     status?: string;
     techStack: string[];
     image?: string;
+    imagePosition?: string;
+    imageFit?: "cover" | "contain";
     github: string;
     live?: string;
+    documentation?: string;
     isMobileScreenshot?: boolean;
     downloadApk?: string;
 };
 
 const experiments: Experiment[] = [
     {
+        title: "LEAPFROG-R + HYDRA",
+        subtitle: "Crash-safe Key-Value Database & Torture Framework",
+        description:
+            "LEAPFROG-R is a crash-safe, single-file key-value database written entirely in Go. HYDRA is a deterministic torture-testing framework that repeatedly kills the database with kill -9 to verify durability, crash recovery, and atomic batch commits. Built by Team Pineapple during a 24-hour systems programming hackathon where we finished Runner-up.",
+        status: "Featured",
+        techStack: [
+            "Go",
+            "Systems Programming",
+            "Concurrency",
+            "File I/O",
+            "Write-Ahead Logging",
+            "Crash Recovery",
+            "CRC32C",
+            "CRC64",
+            "CLI",
+        ],
+        image: "/projects/leapfrog.jpg",
+        imagePosition: "top left",
+        imageFit: "cover",
+        github: "https://github.com/chethan-9817/pineapple",
+        documentation: "https://github.com/chethan-9817/pineapple#readme",
+    },
+    {
         title: "Lunara",
         description:
             "A privacy-first cycle intelligence platform that combines Flow, Mood, and Body tracking to generate adaptive insights based on personal health patterns. Enables users to log daily cycle data and receive AI-assisted forecasting through secure authentication and encrypted Firestore storage.",
         techStack: ["Next.js", "Firebase Auth", "Firestore", "TailwindCSS", "OpenAI API"],
         image: "/projects/lunara.png",
+        imagePosition: "top center",
+        imageFit: "cover",
         github: "https://github.com/Tanushree-RD/lunara",
         live: "https://lunara-teal.vercel.app/",
     },
@@ -34,6 +63,8 @@ const experiments: Experiment[] = [
         description: "Converts images and webcam feed into ASCII art using Python. Supports adjustable width, density, and real-time webcam ASCII output in the terminal.",
         techStack: ["Python", "OpenCV", "Pillow", "NumPy"],
         image: "/projects/ascii.png",
+        imagePosition: "center",
+        imageFit: "cover",
         github: "https://github.com/Tanushree-RD/ascii_art",
     },
     {
@@ -42,6 +73,8 @@ const experiments: Experiment[] = [
             "Android application to wirelessly control speaker output using ESP32 via Bluetooth Serial Communication (SPP). Enables real-time volume and bass control by transmitting commands from mobile UI to microcontroller over Bluetooth.",
         techStack: ["Kotlin", "Android SDK", "Bluetooth SPP", "ESP32"],
         image: "/projects/iballbooster.png",
+        imagePosition: "center",
+        imageFit: "contain",
         isMobileScreenshot: true,
         github: "https://github.com/Tanushree-RD/iballbooster",
         downloadApk:
@@ -53,17 +86,10 @@ const experiments: Experiment[] = [
             "An interactive particle animation playground where colorful particles burst and connect based on mouse movement.",
         techStack: ["HTML", "CSS", "JavaScript", "Canvas API"],
         image: "/projects/particle.png",
+        imagePosition: "center",
+        imageFit: "cover",
         github: "https://github.com/Tanushree-RD/particle-playground",
         live: "https://tanushree-rd.github.io/particle-playground/",
-    },
-    {
-        title: "AI Job Checker",
-        description:
-            "A lightweight web app that estimates the likelihood of AI automation for a given job role.",
-        techStack: ["HTML", "CSS", "JavaScript"],
-        image: "/projects/aijob.png",
-        github: "https://github.com/Tanushree-RD/ai-job-checker",
-        live: "https://ai-job-checker.vercel.app/",
     },
 ];
 
@@ -86,29 +112,24 @@ export default function ExperimentsPage() {
                 {experiments.map((experiment) => (
                     <article
                         key={experiment.title}
-                        className="group overflow-hidden rounded-lg border border-border transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-dark/40 hover:shadow-[0_8px_30px_rgba(232,137,158,0.25)]"
+                        className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-dark/40 hover:shadow-[0_8px_30px_rgba(232,137,158,0.25)]"
                     >
-                        {/* Mobile Screenshot (portrait, centered — e.g. iBallBooster) */}
-                        {experiment.image && experiment.isMobileScreenshot && (
-                            <div className="flex justify-center items-center py-4">
-                                <Image
-                                    src={experiment.image}
-                                    alt={`${experiment.title} UI`}
-                                    width={220}
-                                    height={420}
-                                    className="rounded-xl object-contain shadow-md"
-                                />
-                            </div>
-                        )}
-
-                        {/* Landscape Preview Image (existing projects) */}
-                        {experiment.image && !experiment.isMobileScreenshot && (
-                            <div className="relative w-full h-48 overflow-hidden rounded-xl">
+                        {/* 16:9 Project Thumbnail with Intelligent Focal-Point Cropping */}
+                        {experiment.image && (
+                            <div className="project-image relative w-full aspect-video flex items-center justify-center overflow-hidden bg-card rounded-t-2xl">
                                 <Image
                                     src={experiment.image}
                                     alt={`${experiment.title} preview`}
                                     fill
-                                    className="object-cover transition-transform duration-300 hover:scale-105"
+                                    className={`transition-transform duration-300 ease-out group-hover:scale-105 ${
+                                        experiment.imageFit === "contain"
+                                            ? "object-contain"
+                                            : "object-cover"
+                                    }`}
+                                    style={{
+                                        objectPosition: experiment.imagePosition || "center",
+                                        objectFit: experiment.imageFit || "cover",
+                                    }}
                                     sizes="(max-width: 672px) 100vw, 672px"
                                 />
                             </div>
@@ -127,6 +148,13 @@ export default function ExperimentsPage() {
                                     </span>
                                 )}
                             </div>
+
+                            {/* Subtitle */}
+                            {experiment.subtitle && (
+                                <p className="mt-1 text-xs font-medium text-muted">
+                                    {experiment.subtitle}
+                                </p>
+                            )}
 
                             {/* Description */}
                             <p className="mt-2 text-xs leading-relaxed text-muted">
@@ -177,6 +205,16 @@ export default function ExperimentsPage() {
                                         Live Demo →
                                     </Link>
                                 )}
+                                {experiment.documentation && (
+                                    <Link
+                                        href={experiment.documentation}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-xs text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent-dark hover:decoration-accent-dark"
+                                    >
+                                        Documentation →
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </article>
@@ -185,3 +223,4 @@ export default function ExperimentsPage() {
         </main>
     );
 }
+

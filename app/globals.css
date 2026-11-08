@@ -7,6 +7,7 @@
   --background: #FFF5F2;
   --foreground: #2D2D2D;
   --card: #FFFFFF;
+  --card-bg: var(--card);
   --card-hover: #FFF0EB;
   --border: #F5D6CC;
   --accent: #F8B4C6;
@@ -26,6 +27,7 @@
   --background: #141414;
   --foreground: #F5F5F5;
   --card: #1E1E1E;
+  --card-bg: var(--card);
   --card-hover: #232323;
   --border: rgba(255, 255, 255, 0.06);
   --accent: #F2AFC3;
@@ -45,6 +47,7 @@
   --color-foreground: var(--foreground);
 
   --color-card: var(--card);
+  --color-card-bg: var(--card-bg);
   --color-card-hover: var(--card-hover);
   --color-border: var(--border);
   --color-accent: var(--accent);
@@ -254,4 +257,28 @@ main {
   .footer-watermark-container {
     height: 19vw;
   }
+}
+
+/* ─── Consistent 16:9 Project Thumbnail Layout ─── */
+.project-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--card-bg);
+  border-radius: 16px 16px 0 0;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease-out;
+}
+
+.group:hover .project-image img {
+  transform: scale(1.05);
 }

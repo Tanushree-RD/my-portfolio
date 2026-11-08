@@ -39,12 +39,30 @@ const socials: { label: string; href: string; icon: ReactElement }[] = [
   { label: "Email", href: "mailto:tanushreer021@gmail.com", icon: <FiMail /> },
 ];
 
-const featuredProject = {
-  title: "Lunara",
-  description: "A privacy-first cycle intelligence platform that combines Flow, Mood, and Body tracking to generate adaptive insights based on personal health patterns.",
-  techStack: ["Next.js", "Firebase Auth", "Firestore", "TailwindCSS", "OpenAI API"],
-  github: "https://github.com/Tanushree-RD/lunara",
-  live: "https://lunara-teal.vercel.app/",
+const featuredProject: {
+  title: string;
+  description: string;
+  techStack: string[];
+  github: string;
+  live?: string;
+  documentation?: string;
+} = {
+  title: "LEAPFROG-R + HYDRA",
+  description:
+    "LEAPFROG-R is a crash-safe, single-file key-value database written entirely in Go. HYDRA is a deterministic torture-testing framework that repeatedly kills the database with kill -9 to verify durability, crash recovery, and atomic batch commits. Built by Team Pineapple during a 24-hour systems programming hackathon where we finished Runner-up.",
+  techStack: [
+    "Go",
+    "Systems Programming",
+    "Concurrency",
+    "File I/O",
+    "Write-Ahead Logging",
+    "Crash Recovery",
+    "CRC32C",
+    "CRC64",
+    "CLI",
+  ],
+  github: "https://github.com/chethan-9817/pineapple",
+  documentation: "https://github.com/chethan-9817/pineapple#readme",
 };
 
 const latestBlog = {
@@ -194,6 +212,16 @@ export default function Home() {
                   className="text-xs text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent-dark hover:decoration-accent-dark"
                 >
                   Live Demo →
+                </a>
+              )}
+              {featuredProject.documentation && (
+                <a
+                  href={featuredProject.documentation}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent-dark hover:decoration-accent-dark"
+                >
+                  Documentation →
                 </a>
               )}
             </div>
