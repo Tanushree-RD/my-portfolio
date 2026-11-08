@@ -107,10 +107,9 @@ export default function Home() {
           Beyond Tech
         </h2>
         <p className="text-sm leading-relaxed text-muted lowercase">
-          When I&apos;m AFK, I&apos;m usually into fashion design, upcycling clothes,
-          or experimenting with makeup — basically anything where I can create
-          something new. I&apos;m also probably reading something, singing randomly,
-          getting a game of football in, or playing chess once in a while.
+          When I&apos;m AFK, I&apos;m probably meeting new people, exploring new places,
+          or hopping into hackathons and ideathons. Otherwise, you&apos;ll find me
+          watching another movie or series, reading, or upcycling old clothes.
         </p>
       </FadeInSection>
 
